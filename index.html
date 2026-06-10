@@ -886,8 +886,19 @@
         <button class="export-btn" onclick="exportCSV()">⬇️ Exportar CSV</button>
       </div>
 
+      <!-- Backup & Restore -->
+      <div class="reminder-settings" style="margin-top:16px">
+        <h3>💾 Copia de seguridad</h3>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:14px">Exporta todos tus datos (diario, peso, hábitos, rutinas) a un archivo JSON. Puedes restaurarlos en cualquier dispositivo o navegador.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-primary" style="flex:1;min-width:140px" onclick="backupData()">⬇️ Exportar backup</button>
+          <button class="btn" style="flex:1;min-width:140px;background:var(--surface2);border:1px solid var(--border)" onclick="document.getElementById('restoreInput').click()">⬆️ Importar backup</button>
+          <input type="file" id="restoreInput" accept=".json" style="display:none" onchange="restoreData(this)">
+        </div>
+      </div>
+
       <!-- Reminder settings -->
-      <div class="reminder-settings">
+      <div class="reminder-settings" style="margin-top:16px">
         <h3>🔔 Configuración de recordatorios</h3>
         <div class="rs-row">
           <label>Frecuencia de pesaje</label>
@@ -1821,6 +1832,52 @@ function exportCSV(){
   a.href=url; a.download=`vidaplena_peso_${today()}.csv`; a.click();
   URL.revokeObjectURL(url);
   toast('📥 CSV exportado');
+}
+
+// ═══════════════════════════════════════════════════════
+//  BACKUP & RESTORE
+// ═══════════════════════════════════════════════════════
+async function backupData() {
+  const stores = ['profile','diary','weights','recentFoods','habits','habitLogs','routines'];
+  const data = { version: DB_VERSION, date: today(), stores: {}, localStorage: {} };
+  for (const s of stores) {
+    data.stores[s] = await dbGetAll(s);
+  }
+  const lsKeys = ['vp_theme','vp_water_remind','vp_habit_snoozes'];
+  for (const k of lsKeys) {
+    const v = localStorage.getItem(k);
+    if (v !== null) data.localStorage[k] = v;
+  }
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = `vidaplena_backup_${today()}.json`; a.click();
+  URL.revokeObjectURL(url);
+  toast('✅ Backup exportado');
+}
+
+async function restoreData(input) {
+  const file = input.files[0];
+  if (!file) return;
+  input.value = '';
+  const text = await file.text();
+  let data;
+  try { data = JSON.parse(text); } catch { toast('❌ Archivo no válido'); return; }
+  if (!data.stores) { toast('❌ Formato de backup incorrecto'); return; }
+  if (!confirm('¿Restaurar backup? Se sobrescribirán todos los datos actuales.')) return;
+  const stores = ['profile','diary','weights','recentFoods','habits','habitLogs','routines'];
+  for (const s of stores) {
+    if (!data.stores[s]) continue;
+    const tx = db.transaction(s, 'readwrite');
+    tx.objectStore(s).clear();
+    for (const item of data.stores[s]) tx.objectStore(s).put(item);
+    await new Promise(r => { tx.oncomplete = r; });
+  }
+  if (data.localStorage) {
+    for (const [k, v] of Object.entries(data.localStorage)) localStorage.setItem(k, v);
+  }
+  toast('✅ Backup restaurado. Recargando...');
+  setTimeout(() => location.reload(), 1500);
 }
 
 // ═══════════════════════════════════════════════════════
