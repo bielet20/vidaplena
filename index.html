@@ -2343,23 +2343,23 @@ const EX_SVGS = {
 const EXERCISE_DB = [
   // SIN EQUIPAMIENTO — Fuerza
   {id:'pushup',      name:'Flexiones',              emoji:'💪', muscles:['Pecho','Tríceps','Hombros'],  type:['fuerza','pecho'],
-   goals:['gain_muscle','lose_weight'],         sports:[], eq:'Sin equipo',
+   goals:['gain_muscle','lose_weight','sport_football','sport_swim'], sports:['football','swimming'], eq:'Sin equipo',
    desc:'Posición de plancha alta, baja el pecho al suelo doblando los codos y empuja de vuelta.', tip:'Core apretado y cuerpo en línea recta.',
    b:{s:2,r:'8-10',rest:90}, i:{s:3,r:'12-15',rest:60}, a:{s:4,r:'20-25',rest:45}, svg:'pushup'},
   {id:'squat',       name:'Sentadilla',              emoji:'🦵', muscles:['Cuádriceps','Glúteos','Core'],  type:['fuerza','piernas'],
-   goals:['gain_muscle','lose_weight','sport_football'],sports:['football','running'], eq:'Sin equipo',
+   goals:['gain_muscle','lose_weight','sport_football','sport_cycling'],sports:['football','running','cycling'], eq:'Sin equipo',
    desc:'Pies a la anchura de hombros, baja flexionando rodillas como si fueras a sentarte, rodillas sobre pies.', tip:'Talones en el suelo, rodillas no más allá de la punta del pie.',
    b:{s:2,r:'10-12',rest:90}, i:{s:3,r:'15-20',rest:60}, a:{s:4,r:'20-25',rest:45}, svg:'squat'},
   {id:'lunge',       name:'Zancadas',                emoji:'🏃', muscles:['Cuádriceps','Glúteos','Isquios'],type:['fuerza','piernas'],
-   goals:['gain_muscle','lose_weight','sport_football'],sports:['football','running'], eq:'Sin equipo',
+   goals:['gain_muscle','lose_weight','sport_football','sport_cycling'],sports:['football','running','cycling'], eq:'Sin equipo',
    desc:'Un paso largo adelante, baja la rodilla trasera hacia el suelo y vuelve. Alterna piernas.', tip:'Mantén el torso erguido y la rodilla delantera en línea con el tobillo.',
    b:{s:2,r:'8 c/lado',rest:90}, i:{s:3,r:'12 c/lado',rest:60}, a:{s:4,r:'15 c/lado',rest:45}, svg:'lunge'},
   {id:'plank',       name:'Plancha',                 emoji:'⚡', muscles:['Core','Abdominales','Hombros'],  type:['core','fuerza'],
-   goals:['lose_weight','endurance','gain_muscle'],    sports:['swimming','cycling','running'], eq:'Sin equipo',
+   goals:['lose_weight','endurance','gain_muscle','sport_football','sport_swim','sport_cycling'], sports:['swimming','cycling','running','football'], eq:'Sin equipo',
    desc:'Apoya antebrazos y puntas de pie. Mantén el cuerpo recto como una tabla.', tip:'No eleves ni bajes las caderas. Respira de forma constante.',
    b:{s:2,r:'20 seg',rest:60}, i:{s:3,r:'40 seg',rest:45}, a:{s:4,r:'60 seg',rest:30}, svg:'plank'},
   {id:'mountain_climber',name:'Escaladores',         emoji:'🧗', muscles:['Core','Cardio','Hombros'],       type:['cardio','core'],
-   goals:['lose_weight','endurance'],                  sports:['football','running'], eq:'Sin equipo',
+   goals:['lose_weight','endurance','sport_football'],  sports:['football','running'], eq:'Sin equipo',
    desc:'Desde plancha alta, lleva rodillas alternas hacia el pecho en movimiento rápido.', tip:'Caderas bajas, ritmo constante. Cuantos más rápido, mayor beneficio cardio.',
    b:{s:2,r:'20 seg',rest:60}, i:{s:3,r:'30 seg',rest:45}, a:{s:4,r:'45 seg',rest:30}, svg:'mountain_climber'},
   {id:'crunch',      name:'Crunch abdominal',        emoji:'🏋️', muscles:['Abdominales','Core'],            type:['core'],
@@ -2367,7 +2367,7 @@ const EXERCISE_DB = [
    desc:'Tumbado boca arriba, rodillas flexionadas. Eleva el tronco hacia las rodillas sin separar la zona lumbar.', tip:'No tires del cuello. El movimiento es del core, no de la cabeza.',
    b:{s:2,r:'12-15',rest:60}, i:{s:3,r:'20',rest:45}, a:{s:4,r:'30',rest:30}, svg:'crunch'},
   {id:'russian_twist',name:'Russian Twist',          emoji:'🌀', muscles:['Oblicuos','Core'],               type:['core'],
-   goals:['lose_weight','gain_muscle'],                sports:['football','swimming'], eq:'Sin equipo / Peso',
+   goals:['lose_weight','gain_muscle','sport_football','sport_swim'], sports:['football','swimming'], eq:'Sin equipo / Peso',
    desc:'Sentado a 45°, pies elevados. Gira el tronco de lado a lado tocando el suelo.', tip:'Mantén la espalda recta y el movimiento controlado.',
    b:{s:2,r:'20 tot.',rest:60}, i:{s:3,r:'30 tot.',rest:45}, a:{s:3,r:'40 tot.',rest:30}, svg:'russian_twist'},
   {id:'leg_raise',   name:'Elevación de piernas',    emoji:'🦵', muscles:['Abdominales bajos','Core'],       type:['core'],
@@ -2375,11 +2375,11 @@ const EXERCISE_DB = [
    desc:'Tumbado boca arriba, eleva las piernas rectas hasta 90° y bájalas sin tocar el suelo.', tip:'Zona lumbar pegada al suelo. Baja lentamente para mayor efectividad.',
    b:{s:2,r:'10',rest:60}, i:{s:3,r:'15',rest:45}, a:{s:4,r:'20',rest:30}, svg:'leg_raise'},
   {id:'hip_thrust',  name:'Hip Thrust',              emoji:'🍑', muscles:['Glúteos','Isquios','Core'],       type:['fuerza','piernas'],
-   goals:['gain_muscle','lose_weight'],                sports:[], eq:'Sin equipo / Banco',
+   goals:['gain_muscle','lose_weight','sport_football','sport_cycling'], sports:['football','cycling'], eq:'Sin equipo / Banco',
    desc:'Espalda sobre banco, pies en el suelo. Eleva las caderas hasta alinearte con el tronco. Aprieta glúteos arriba.', tip:'Empuja con los talones, no con los dedos. Máximo squeeze arriba.',
    b:{s:2,r:'12',rest:60}, i:{s:3,r:'15',rest:45}, a:{s:4,r:'20',rest:30}, svg:'hip_thrust'},
   {id:'burpee',      name:'Burpee',                  emoji:'🔥', muscles:['Cuerpo completo','Cardio'],       type:['cardio','fuerza'],
-   goals:['lose_weight','endurance'],                  sports:['football','running'], eq:'Sin equipo',
+   goals:['lose_weight','endurance','sport_football'],  sports:['football','running'], eq:'Sin equipo',
    desc:'De pie, baja a plancha, flexión, salta hacia arriba con brazos extendidos. Repetir.', tip:'Mantén el ritmo. Mejor 5 buenos que 20 caóticos.',
    b:{s:2,r:'6',rest:90}, i:{s:3,r:'10',rest:60}, a:{s:4,r:'15',rest:45}, svg:'burpee'},
   {id:'jumping_jack',name:'Jumping Jacks',           emoji:'⭐', muscles:['Cardio','Piernas','Hombros'],     type:['cardio'],
@@ -2388,19 +2388,19 @@ const EXERCISE_DB = [
    b:{s:2,r:'30 seg',rest:45}, i:{s:3,r:'45 seg',rest:30}, a:{s:4,r:'60 seg',rest:20}, svg:'jumping_jack'},
   // CON EQUIPAMIENTO
   {id:'pullup',      name:'Dominadas',               emoji:'💪', muscles:['Espalda','Bíceps','Core'],        type:['fuerza','espalda'],
-   goals:['gain_muscle'],                              sports:['swimming'], eq:'Barra',
+   goals:['gain_muscle','sport_swim'],                  sports:['swimming'], eq:'Barra',
    desc:'Cuelga de la barra con agarre prono. Tira del cuerpo hacia arriba hasta que el mentón supere la barra.', tip:'Hombros hacia atrás y abajo. No balancees el cuerpo.',
    b:{s:2,r:'3-5',rest:120}, i:{s:3,r:'6-8',rest:90}, a:{s:4,r:'10-12',rest:60}, svg:'pullup'},
   {id:'row',         name:'Remo con mancuerna',      emoji:'🚣', muscles:['Espalda','Bíceps','Core'],        type:['fuerza','espalda'],
-   goals:['gain_muscle'],                              sports:['swimming','cycling'], eq:'Mancuerna',
+   goals:['gain_muscle','sport_swim','sport_cycling'],  sports:['swimming','cycling'], eq:'Mancuerna',
    desc:'Un brazo apoyado en banco, tira la mancuerna hacia la cadera manteniendo el codo pegado.', tip:'No rotar el torso. El codo sube recto hacia el techo.',
    b:{s:2,r:'10 c/lado',rest:75}, i:{s:3,r:'12 c/lado',rest:60}, a:{s:4,r:'15 c/lado',rest:45}, svg:'row'},
   {id:'shoulder_press',name:'Press militar',         emoji:'🏋️', muscles:['Hombros','Tríceps','Core'],       type:['fuerza','hombros'],
-   goals:['gain_muscle'],                              sports:['swimming'], eq:'Mancuernas / Barra',
+   goals:['gain_muscle','sport_swim'],                  sports:['swimming'], eq:'Mancuernas / Barra',
    desc:'De pie o sentado, empuja las mancuernas desde los hombros hacia arriba hasta extender los brazos.', tip:'No arquees la espalda. Core activo durante todo el movimiento.',
    b:{s:2,r:'10',rest:75}, i:{s:3,r:'12',rest:60}, a:{s:4,r:'15',rest:45}, svg:'shoulder_press'},
   {id:'lateral_raise',name:'Elevaciones laterales',  emoji:'✋', muscles:['Hombros laterales'],              type:['fuerza','hombros'],
-   goals:['gain_muscle'],                              sports:[], eq:'Mancuernas',
+   goals:['gain_muscle','sport_swim'],                  sports:['swimming'], eq:'Mancuernas',
    desc:'Con mancuernas a los lados, eleva los brazos hasta la altura del hombro con codos ligeramente doblados.', tip:'El movimiento sale del hombro, no del codo. Controlado en la bajada.',
    b:{s:2,r:'12',rest:60}, i:{s:3,r:'15',rest:45}, a:{s:4,r:'20',rest:30}, svg:'lateral_raise'},
   {id:'bicep_curl',  name:'Curl de bíceps',          emoji:'💪', muscles:['Bíceps','Antebrazo'],             type:['fuerza','brazos'],
@@ -2408,11 +2408,11 @@ const EXERCISE_DB = [
    desc:'Codos pegados al cuerpo, curva las mancuernas hacia los hombros y baja lentamente.', tip:'No balancees el cuerpo para coger impulso. Lento en la bajada.',
    b:{s:2,r:'10',rest:60}, i:{s:3,r:'12',rest:45}, a:{s:4,r:'15',rest:30}, svg:'bicep_curl'},
   {id:'deadlift',    name:'Peso muerto',             emoji:'⚡', muscles:['Espalda baja','Glúteos','Isquios'],type:['fuerza','piernas'],
-   goals:['gain_muscle'],                              sports:['football'], eq:'Barra / Mancuernas',
+   goals:['gain_muscle','sport_football','sport_cycling'], sports:['football','cycling'], eq:'Barra / Mancuernas',
    desc:'Barra frente a ti, pies a la anchura de caderas. Agarra la barra y levanta extendiendo caderas y rodillas.', tip:'Espalda neutra durante todo el recorrido. La barra raspa las piernas.',
    b:{s:3,r:'6-8',rest:120}, i:{s:4,r:'8-10',rest:90}, a:{s:4,r:'10-12',rest:75}, svg:'deadlift'},
   {id:'calf_raise',  name:'Elevación de talones',    emoji:'👟', muscles:['Gemelos','Sóleo'],               type:['fuerza','piernas'],
-   goals:['gain_muscle','sport_running'],              sports:['running','cycling'], eq:'Sin equipo / Escalón',
+   goals:['gain_muscle','endurance','sport_cycling'],   sports:['running','cycling'], eq:'Sin equipo / Escalón',
    desc:'De pie, eleva los talones al máximo apoyando solo las puntas y baja despacio.', tip:'Rango completo: máximo abajo y máximo arriba. Unilateral para mayor dificultad.',
    b:{s:2,r:'15',rest:45}, i:{s:3,r:'20',rest:30}, a:{s:4,r:'25',rest:20}, svg:'calf_raise'},
 ];
@@ -2426,6 +2426,13 @@ const GOALS = [
   {id:'sport_swim',   icon:'🏊', label:'Natación',          sub:'Hombros + cardio'},
   {id:'sport_cycling',icon:'🚴', label:'Ciclismo',          sub:'Piernas + core'},
 ];
+
+/* ─── Sport → internal tag mapping ─── */
+const SPORT_MAP = {
+  sport_football: 'football',
+  sport_swim:     'swimming',
+  sport_cycling:  'cycling',
+};
 
 /* ─── Trainer state ─── */
 let trainerGoal  = null;
@@ -2494,16 +2501,19 @@ function generateRoutine() {
   const exCount = trainerTime<=20?4 : trainerTime<=30?6 : trainerTime<=45?8 : trainerTime<=60?10 : 12;
 
   // Filter exercises by goal and level
+  const sportTag = SPORT_MAP[trainerGoal] || null;
   let pool = EXERCISE_DB.filter(e =>
-    e.goals.includes(trainerGoal) || e.sports.some(s=>trainerGoal.includes(s))
+    e.goals.includes(trainerGoal) || (sportTag && e.sports.includes(sportTag))
   );
-  if (!pool.length) pool = EXERCISE_DB; // fallback
+  if (pool.length < 4) pool = EXERCISE_DB;
 
-  // Sort: prioritize type match, then shuffle rest
+  // Sort: prioritize goal/sport match, then shuffle rest
   const scored = pool.map(e => ({e, score: Math.random()+
-    (trainerGoal==='lose_weight' && e.type.includes('cardio') ? 2 : 0)+
-    (trainerGoal==='gain_muscle' && e.type.includes('fuerza') ? 2 : 0)+
-    (trainerGoal==='endurance'  && (e.type.includes('cardio')||e.type.includes('core')) ? 2 : 0)
+    (e.goals.includes(trainerGoal)                                                    ? 3 : 0)+
+    (sportTag && e.sports.includes(sportTag)                                          ? 3 : 0)+
+    (trainerGoal==='lose_weight' && e.type.includes('cardio')                         ? 2 : 0)+
+    (trainerGoal==='gain_muscle' && e.type.includes('fuerza')                         ? 2 : 0)+
+    (trainerGoal==='endurance'  && (e.type.includes('cardio')||e.type.includes('core'))? 2 : 0)
   })).sort((a,b)=>b.score-a.score);
 
   const selected = scored.slice(0, exCount).map(x=>x.e);
