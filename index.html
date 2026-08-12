@@ -451,6 +451,53 @@
   .dish-result-kcal { font-size:13px; font-weight:700; color:var(--green); white-space:nowrap; }
   .dish-result-meta { font-size:12px; color:var(--muted); margin-top:3px; }
   .dish-result-cat { display:inline-block; font-size:11px; background:var(--surface2); border-radius:4px; padding:1px 6px; margin-right:4px; }
+
+  /* ── SALUD IA ── */
+  .api-key-card { background:var(--surface); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px 20px; margin-bottom:16px; }
+  .api-key-card h3 { font-size:15px; font-weight:700; margin-bottom:10px; display:flex; align-items:center; justify-content:space-between; }
+  .api-key-row { display:flex; gap:8px; align-items:center; }
+  .api-key-row input { flex:1; font-family:monospace; font-size:13px; }
+  .api-key-save-btn { padding:9px 14px; background:var(--green); color:#fff; border:none; border-radius:8px; font-weight:600; cursor:pointer; font-size:13px; white-space:nowrap; }
+  .med-disclaimer { background:var(--orange-lt); border:1.5px solid var(--orange); border-radius:10px; padding:12px 16px; font-size:13px; color:#7d5800; margin-bottom:16px; display:flex; align-items:flex-start; gap:10px; }
+  .med-disclaimer strong { display:block; margin-bottom:2px; color:var(--orange); font-size:14px; }
+  .consult-card { background:var(--surface); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin-bottom:16px; }
+  .consult-card h3 { font-size:16px; font-weight:700; margin-bottom:14px; }
+  .symptom-chips { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
+  .symptom-chip { padding:6px 12px; border:1.5px solid var(--border); border-radius:20px; font-size:13px; cursor:pointer; background:var(--surface); color:var(--text); transition:all .15s; user-select:none; }
+  .symptom-chip.selected { background:var(--red-lt); border-color:var(--red); color:var(--red); font-weight:600; }
+  .context-toggles { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px; }
+  .ctx-toggle { display:flex; align-items:center; gap:6px; font-size:13px; cursor:pointer; padding:6px 10px; border:1px solid var(--border); border-radius:8px; background:var(--surface); color:var(--muted); transition:all .15s; font-weight:normal; text-transform:none; letter-spacing:0; }
+  .ctx-toggle.active { background:var(--green-lt); border-color:var(--green); color:var(--green); }
+  .ctx-toggle input { accent-color:var(--green); }
+  .med-chat { display:flex; flex-direction:column; gap:14px; margin-top:16px; padding-top:16px; border-top:1px solid var(--border); }
+  .med-msg { display:flex; gap:10px; align-items:flex-start; }
+  .med-msg.user { flex-direction:row-reverse; }
+  .med-bubble { max-width:85%; padding:12px 16px; border-radius:12px; font-size:14px; line-height:1.6; }
+  .med-msg.user .med-bubble { background:var(--green); color:#fff; border-radius:12px 12px 4px 12px; }
+  .med-msg.ai .med-bubble { background:var(--surface2); border:1px solid var(--border); border-radius:12px 12px 12px 4px; }
+  .med-avatar { width:32px; height:32px; border-radius:50%; background:var(--surface2); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; border:1px solid var(--border); }
+  .med-msg.user .med-avatar { background:var(--green); border-color:var(--green); }
+  .med-typing { display:flex; gap:5px; align-items:center; padding:4px 0; }
+  .med-typing span { width:8px; height:8px; border-radius:50%; background:var(--muted); animation:medBlink 1.2s infinite; }
+  .med-typing span:nth-child(2) { animation-delay:.2s; }
+  .med-typing span:nth-child(3) { animation-delay:.4s; }
+  @keyframes medBlink { 0%,80%,100%{opacity:.25} 40%{opacity:1} }
+  .med-section-card { background:var(--surface); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; margin-bottom:12px; }
+  .med-section-card .msc-header { padding:14px 18px; font-size:14px; font-weight:700; cursor:pointer; display:flex; justify-content:space-between; align-items:center; }
+  .med-section-card .msc-header:hover { background:var(--surface2); }
+  .med-section-card .msc-body { padding:14px 18px; border-top:1px solid var(--border); display:none; }
+  .med-section-card .msc-body.open { display:block; }
+  .med-history-item { padding:12px 0; border-bottom:1px solid var(--surface2); }
+  .med-history-item:last-child { border-bottom:none; }
+  .med-history-date { font-size:11px; color:var(--muted); margin-bottom:4px; }
+  .med-history-q { font-size:13px; font-weight:600; margin-bottom:4px; }
+  .med-history-a { font-size:12px; color:var(--muted); line-height:1.5; }
+  .med-send-row { display:flex; gap:8px; margin-top:12px; align-items:flex-end; }
+  .med-send-row textarea { flex:1; padding:10px 12px; font-size:14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); resize:vertical; min-height:76px; font-family:inherit; line-height:1.5; }
+  .med-send-row textarea:focus { outline:2px solid var(--green); border-color:transparent; }
+  .med-send-btn { padding:12px 18px; background:var(--green); color:#fff; border:none; border-radius:8px; font-weight:600; cursor:pointer; font-size:14px; white-space:nowrap; }
+  .med-send-btn:hover { background:#237a32; }
+  .med-send-btn:disabled { opacity:.5; cursor:not-allowed; }
 </style>
 </head>
 <body>
@@ -659,6 +706,7 @@
     <button class="main-tab" onclick="showTab('stats',this)">📊 Stats</button>
     <button class="main-tab" onclick="showTab('peso',this)">⚖️ Peso</button>
     <button class="main-tab" onclick="showTab('entrena',this)">🏋️ Entrena</button>
+    <button class="main-tab" onclick="showTab('salud',this)">🩺 Salud IA</button>
   </div>
 
   <!-- ── TAB: DIARIO ── -->
@@ -994,6 +1042,58 @@
     </div>
   </div>
 
+  <!-- ── TAB: SALUD IA ── -->
+  <div id="tab-salud" style="display:none">
+
+    <div class="med-disclaimer">
+      <span style="font-size:24px;flex-shrink:0">⚕️</span>
+      <div>
+        <strong>Herramienta de apoyo — no sustituye al médico</strong>
+        Las respuestas son orientativas. Ante síntomas graves o urgentes llama al 112 o acude a urgencias.
+      </div>
+    </div>
+
+    <!-- API Key config -->
+    <div class="api-key-card">
+      <h3>🔑 API Anthropic <span style="font-size:12px;font-weight:400;color:var(--muted)" id="apiKeyStatus">No configurada</span></h3>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Necesitas una clave de la API de Anthropic (Claude). Se guarda sólo en este dispositivo.</div>
+      <div class="api-key-row">
+        <input type="password" id="apiKeyInput" placeholder="sk-ant-api03-...">
+        <button class="api-key-save-btn" onclick="saveApiKey()">Guardar</button>
+      </div>
+    </div>
+
+    <!-- New consultation -->
+    <div class="consult-card">
+      <h3>🩺 Nueva consulta</h3>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:12px">Selecciona síntomas rápidos y/o describe tu consulta</div>
+      <div class="symptom-chips" id="symptomChips"></div>
+      <div style="font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.3px;margin-bottom:8px">Incluir mis datos en el análisis</div>
+      <div class="context-toggles">
+        <label class="ctx-toggle active" id="ctxNutrition"><input type="checkbox" id="cbNutrition" checked onchange="toggleMedCtx(this,'ctxNutrition')"> 🥗 Nutrición</label>
+        <label class="ctx-toggle active" id="ctxPeso"><input type="checkbox" id="cbPeso" checked onchange="toggleMedCtx(this,'ctxPeso')"> ⚖️ Peso/IMC</label>
+        <label class="ctx-toggle active" id="ctxHabitos"><input type="checkbox" id="cbHabitos" checked onchange="toggleMedCtx(this,'ctxHabitos')"> 🔔 Hábitos</label>
+      </div>
+      <div class="med-send-row">
+        <textarea id="medQuery" placeholder="Ej: Llevo 3 días con dolor de cabeza por las tardes, mareos leves y algo de cansancio. ¿A qué puede deberse?"></textarea>
+        <button class="med-send-btn" id="medSendBtn" onclick="sendMedQuery()">Consultar IA</button>
+      </div>
+      <div id="medChat" class="med-chat" style="display:none"></div>
+    </div>
+
+    <!-- History -->
+    <div class="med-section-card">
+      <div class="msc-header" onclick="toggleMedHistory()">
+        <span>📋 Historial de consultas</span>
+        <span id="medHistoryToggle">▼</span>
+      </div>
+      <div class="msc-body" id="medHistoryBody">
+        <div style="color:var(--muted);font-size:13px">Sin consultas previas</div>
+      </div>
+    </div>
+
+  </div>
+
 </div>
 
 <script>
@@ -1001,7 +1101,7 @@
 //  DATABASE — IndexedDB
 // ═══════════════════════════════════════════════════════
 const DB_NAME    = 'VidaPlenaDB';
-const DB_VERSION = 3;
+const DB_VERSION = 4;
 let db = null;
 
 function openDB() {
@@ -1023,6 +1123,8 @@ function openDB() {
         d.createObjectStore('habitLogs',  { keyPath:'id' });
       if (!d.objectStoreNames.contains('routines'))
         d.createObjectStore('routines',   { keyPath:'id' });
+      if (!d.objectStoreNames.contains('medHistory'))
+        d.createObjectStore('medHistory', { keyPath:'id' });
     };
     req.onsuccess = e => { db = e.target.result; resolve(db); };
     req.onerror   = e => reject(e.target.error);
@@ -1309,9 +1411,11 @@ function showTab(name, el) {
   document.getElementById('tab-stats').style.display   = name==='stats'   ?'block':'none';
   document.getElementById('tab-peso').style.display    = name==='peso'    ?'block':'none';
   document.getElementById('tab-entrena').style.display = name==='entrena' ?'block':'none';
+  document.getElementById('tab-salud').style.display   = name==='salud'   ?'block':'none';
   if (name==='stats')   renderStats();
   if (name==='habitos') renderHabits();
   if (name==='entrena') initTrainer();
+  if (name==='salud')   initMedTab();
 }
 
 // ═══════════════════════════════════════════════════════
@@ -3858,6 +3962,265 @@ async function init(){
   } else {
     document.getElementById('onboarding').style.display='flex';
   }
+}
+
+// ═══════════════════════════════════════════════════════
+//  SALUD IA — Asistente médico con Claude
+// ═══════════════════════════════════════════════════════
+const SYMPTOM_LIST = [
+  'Fiebre','Dolor cabeza','Cansancio','Náuseas','Dolor abdominal',
+  'Tos','Mareos','Insomnio','Ansiedad','Dolor muscular',
+  'Palpitaciones','Pérdida apetito','Hinchazón','Dificultad respirar',
+  'Dolor pecho','Visión borrosa'
+];
+let medSelectedSymptoms = new Set();
+let medHistoryData      = [];
+let medTabInit          = false;
+
+function initMedTab() {
+  if (medTabInit) return;
+  medTabInit = true;
+
+  // Render symptom chips
+  document.getElementById('symptomChips').innerHTML = SYMPTOM_LIST.map(s =>
+    `<div class="symptom-chip" onclick="toggleMedSymptom(this,'${s}')">${s}</div>`
+  ).join('');
+
+  // API key status
+  const key = localStorage.getItem('vp_api_key');
+  if (key) {
+    document.getElementById('apiKeyStatus').textContent = '✅ Configurada';
+    document.getElementById('apiKeyInput').value = '•'.repeat(20);
+  }
+
+  loadMedHistory();
+}
+
+function saveApiKey() {
+  const val = document.getElementById('apiKeyInput').value.trim();
+  if (!val.startsWith('sk-')) { toast('Clave inválida — debe empezar por sk-'); return; }
+  localStorage.setItem('vp_api_key', val);
+  document.getElementById('apiKeyStatus').textContent = '✅ Configurada';
+  document.getElementById('apiKeyInput').value = '•'.repeat(20);
+  toast('Clave API guardada ✅');
+}
+
+function toggleMedSymptom(el, name) {
+  if (medSelectedSymptoms.has(name)) {
+    medSelectedSymptoms.delete(name); el.classList.remove('selected');
+  } else {
+    medSelectedSymptoms.add(name); el.classList.add('selected');
+  }
+}
+
+function toggleMedCtx(cb, labelId) {
+  document.getElementById(labelId).classList.toggle('active', cb.checked);
+}
+
+async function buildMedContext() {
+  let ctx = '';
+  if (profile) {
+    const bmi = calcBMI(profile.weight, profile.height);
+    const cat = bmiCategory(bmi);
+    ctx += `\nPERFIL: ${profile.name||'Usuario'}, ${profile.age} años, ${profile.sex==='m'?'hombre':'mujer'}, ${profile.weight} kg, ${profile.height} cm, IMC ${bmi} (${cat.label}). Objetivo: ${profile.goal==='lose'?'perder peso':profile.goal==='gain'?'ganar músculo':'mantener peso'}.`;
+  }
+  if (document.getElementById('cbPeso').checked && weights.length > 0) {
+    const last = weights[weights.length-1];
+    const diff = weights.length > 1 ? +(last.kg - weights[0].kg).toFixed(1) : 0;
+    ctx += `\nPESO: Último ${last.kg} kg (${last.date}). Evolución total: ${diff>=0?'+':''}${diff} kg en ${weights.length} registros.`;
+  }
+  if (document.getElementById('cbNutrition').checked) {
+    const dates = [];
+    const d = new Date();
+    for (let i=0;i<7;i++) { dates.push(d.toISOString().slice(0,10)); d.setDate(d.getDate()-1); }
+    let totK=0,totP=0,totC=0,totF=0,days=0;
+    for (const dt of dates) {
+      const entry = diaryCache[dt] || await dbGet('diary', dt);
+      if (!entry) continue;
+      let k=0,p=0,c=0,f=0;
+      for (const foods of Object.values(entry.meals||{})) {
+        for (const food of foods) {
+          const r=(food.portion||100)/100;
+          k+=(food.kcal||0)*r; p+=(food.prot||0)*r; c+=(food.carbs||0)*r; f+=(food.fat||0)*r;
+        }
+      }
+      if (Math.round(k)===0) continue;
+      totK+=k; totP+=p; totC+=c; totF+=f; days++;
+    }
+    if (days>0) ctx += `\nNUTRICIÓN (prom. ${days} días): ${Math.round(totK/days)} kcal, proteína ${Math.round(totP/days)}g, carbos ${Math.round(totC/days)}g, grasa ${Math.round(totF/days)}g.`;
+  }
+  if (document.getElementById('cbHabitos').checked) {
+    try {
+      const habits = await dbGetAll('habits');
+      if (habits.length) ctx += `\nHÁBITOS: ${habits.map(h=>h.name).join(', ')}.`;
+    } catch(e) {}
+  }
+  return ctx;
+}
+
+async function sendMedQuery() {
+  const apiKey = localStorage.getItem('vp_api_key');
+  if (!apiKey) { toast('Configura primero tu clave API de Anthropic'); return; }
+
+  const symptoms  = [...medSelectedSymptoms];
+  const queryText = document.getElementById('medQuery').value.trim();
+  if (!symptoms.length && !queryText) { toast('Describe tus síntomas o selecciona alguno'); return; }
+
+  const userMessage = [
+    symptoms.length ? `Síntomas presentes: ${symptoms.join(', ')}.` : '',
+    queryText
+  ].filter(Boolean).join('\n');
+
+  const chatEl = document.getElementById('medChat');
+  chatEl.style.display = 'flex';
+
+  addMedBubble('user', userMessage);
+  const typingId = addMedTyping();
+
+  const btn = document.getElementById('medSendBtn');
+  btn.disabled = true;
+  document.getElementById('medQuery').disabled = true;
+
+  try {
+    const healthCtx = await buildMedContext();
+    const systemPrompt = `Eres un asistente médico de apoyo integrado en VidaPlena, una app de salud personal. Tu rol es analizar síntomas y datos de salud para orientar al usuario, NO para diagnosticar ni prescribir.
+
+DATOS DE SALUD DEL USUARIO:${healthCtx || ' No disponibles.'}
+
+ESTRUCTURA TU RESPUESTA ASÍ:
+**Análisis de síntomas**
+Breve interpretación de lo que reporta el usuario.
+
+**Posibles causas** (de más a menos probable)
+• ...
+• ...
+
+**Relación con tus datos de salud**
+Si hay algo relevante en su perfil/nutrición/peso.
+
+**Recomendaciones inmediatas**
+Qué puede hacer ahora mismo.
+
+**Cuándo consultar al médico**
+🟢 Puede esperar / 🟡 Esta semana / 🔴 Hoy/urgencias — con criterios claros.
+
+---
+⚕️ *Estas orientaciones no sustituyen la consulta médica profesional.*
+
+Responde siempre en español, con empatía y claridad. Sé conciso.`;
+
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 1200,
+        system: systemPrompt,
+        messages: [{ role:'user', content: userMessage }]
+      })
+    });
+
+    removeMedTyping(typingId);
+
+    if (!resp.ok) {
+      const err = await resp.json().catch(()=>({}));
+      throw new Error(err.error?.message || `Error HTTP ${resp.status}`);
+    }
+
+    const data   = await resp.json();
+    const answer = data.content[0].text;
+    addMedBubble('ai', answer);
+
+    await saveMedConsult(userMessage, answer);
+
+    document.getElementById('medQuery').value = '';
+    medSelectedSymptoms.clear();
+    document.querySelectorAll('.symptom-chip.selected').forEach(c=>c.classList.remove('selected'));
+
+  } catch(e) {
+    removeMedTyping(typingId);
+    addMedBubble('ai', `❌ Error: ${e.message}\n\nVerifica que la clave API sea correcta y tengas conexión a internet.`);
+  } finally {
+    btn.disabled = false;
+    document.getElementById('medQuery').disabled = false;
+  }
+}
+
+function addMedBubble(role, text) {
+  const chatEl = document.getElementById('medChat');
+  const html = text
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g,'<em>$1</em>')
+    .replace(/\n/g,'<br>');
+  const isUser = role === 'user';
+  chatEl.insertAdjacentHTML('beforeend', `
+    <div class="med-msg ${role}">
+      ${!isUser ? '<div class="med-avatar">🩺</div>' : ''}
+      <div class="med-bubble">${html}</div>
+      ${isUser ? '<div class="med-avatar">👤</div>' : ''}
+    </div>`);
+  chatEl.lastElementChild?.scrollIntoView({ behavior:'smooth', block:'end' });
+}
+
+function addMedTyping() {
+  const id = `mtyp_${Date.now()}`;
+  const chatEl = document.getElementById('medChat');
+  chatEl.insertAdjacentHTML('beforeend', `
+    <div class="med-msg ai" id="${id}">
+      <div class="med-avatar">🩺</div>
+      <div class="med-bubble"><div class="med-typing"><span></span><span></span><span></span></div></div>
+    </div>`);
+  chatEl.lastElementChild?.scrollIntoView({ behavior:'smooth', block:'end' });
+  return id;
+}
+
+function removeMedTyping(id) {
+  document.getElementById(id)?.remove();
+}
+
+async function saveMedConsult(question, answer) {
+  const entry = { id: Date.now().toString(), ts: new Date().toISOString(), question, answer };
+  try { await dbPut('medHistory', entry); } catch(e) {}
+  medHistoryData.unshift(entry);
+  renderMedHistory();
+}
+
+async function loadMedHistory() {
+  try {
+    medHistoryData = await dbGetAll('medHistory');
+    medHistoryData.sort((a,b) => b.ts.localeCompare(a.ts));
+  } catch(e) { medHistoryData = []; }
+  renderMedHistory();
+}
+
+function renderMedHistory() {
+  const body = document.getElementById('medHistoryBody');
+  if (!medHistoryData.length) {
+    body.innerHTML = '<div style="color:var(--muted);font-size:13px">Sin consultas previas</div>';
+    return;
+  }
+  body.innerHTML = medHistoryData.slice(0,15).map(h => {
+    const d = new Date(h.ts).toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+    const preview = h.answer.replace(/\*\*/g,'').replace(/\*/g,'').slice(0,140)+(h.answer.length>140?'…':'');
+    return `<div class="med-history-item">
+      <div class="med-history-date">${d}</div>
+      <div class="med-history-q">${h.question.slice(0,100)}${h.question.length>100?'…':''}</div>
+      <div class="med-history-a">${preview}</div>
+    </div>`;
+  }).join('');
+}
+
+function toggleMedHistory() {
+  const body    = document.getElementById('medHistoryBody');
+  const toggle  = document.getElementById('medHistoryToggle');
+  const isOpen  = body.classList.toggle('open');
+  toggle.textContent = isOpen ? '▲' : '▼';
 }
 
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeSearch();closeProfileModal();}});
